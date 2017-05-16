@@ -8,7 +8,7 @@ HOMEBREW_CACHE = "#{ENV["HOME"]}/Library/Caches/Homebrew".freeze
 HOMEBREW_OLD_CACHE = "/Library/Caches/Homebrew".freeze
 BREW_REPO = "https://github.com/Homebrew/brew".freeze
 CORE_TAP_REPO = "https://github.com/Homebrew/homebrew-core".freeze
-BREW_REPO_SSH = “git@github.com:Homebrew/brew.git”.freeze
+BREW_REPO_SSH = "git@github.com:Homebrew/brew.git".freeze
 
 # no analytics during installation
 ENV["HOMEBREW_NO_ANALYTICS_THIS_RUN"] = "1"
