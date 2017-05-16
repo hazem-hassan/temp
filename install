@@ -1,4 +1,5 @@
-#s script installs to /usr/local only. To install elsewhere you can just
+#!/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby
+# This script installs to /usr/local only. To install elsewhere you can just
 # untar https://github.com/Homebrew/brew/tarball/master anywhere you like or
 # change the value of HOMEBREW_PREFIX.
 HOMEBREW_PREFIX = "/usr/local".freeze
@@ -7,6 +8,7 @@ HOMEBREW_CACHE = "#{ENV["HOME"]}/Library/Caches/Homebrew".freeze
 HOMEBREW_OLD_CACHE = "/Library/Caches/Homebrew".freeze
 BREW_REPO = "https://github.com/Homebrew/brew".freeze
 CORE_TAP_REPO = "https://github.com/Homebrew/homebrew-core".freeze
+BREW_REPO_SSH = “git@github.com:Homebrew/brew.git”.freeze
 
 # no analytics during installation
 ENV["HOMEBREW_NO_ANALYTICS_THIS_RUN"] = "1"
@@ -291,7 +293,7 @@ Dir.chdir HOMEBREW_REPOSITORY do
 
     # "git remote add" will fail if the remote is defined in the global config
     #system git, "config", "remote.origin.url", BREW_REPO
-    system git, "config", "remote", "add", "origin", "git@github.com:Homebrew/brew.git"
+system git, "config", "remote”, “add”, BREW_REPO_SSH
     system git, "config", "remote.origin.fetch", "+refs/heads/*:refs/remotes/origin/*"
 
     # ensure we don't munge line endings on checkout
