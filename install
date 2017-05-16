@@ -292,7 +292,6 @@ Dir.chdir HOMEBREW_REPOSITORY do
     system git, "init", "-q"
 
     # "git remote add" will fail if the remote is defined in the global config
-    #system git, "config", "remote.origin.url", BREW_REPO
     system git, "config", "remote”, “add”, BREW_REPO_SSH
     system git, "config", "remote.origin.fetch", "+refs/heads/*:refs/remotes/origin/*"
 
